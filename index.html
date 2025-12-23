@@ -6,58 +6,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
 
-
 <style>
-
 body{
   margin:0;
   font-family: "Segoe UI", sans-serif;
   background:url("background.jpg") no-repeat center center fixed;
   background-size:cover;
+  background-attachment: fixed;
 }
 
-
-/* HEADER */
-.header{
-  text-align:center;
-  padding-top:25px;
-  position:relative;
+/* Sticky header flex */
+.header-flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.9);
+  padding:10px 20px;
+  z-index:100;
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid #FFD700;
 }
 
-/* Center Logo */
-.logo{
-  width:200px;
-  margin-bottom:5px;
-  position:relative;
+/* Logo + Title + Tagline flex */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
-
-/* Title Font */
+.header-left .logo{
+  width:80px;
+  border-radius:8px;
+}
+.header-text{
+  display:flex;
+  flex-direction:column;
+}
 .title{
-  font-family: cursive; /* Changed from Lora to Raleway */
-  font-size: 60px; /* Keep your existing size */
-  font-weight: 400; /* Bold style */
+  font-family: cursive;
+  font-size: 50px;
+  font-weight: 400;
   letter-spacing: 1px;
-  
-  /* Gradient text */
   background: linear-gradient(90deg, #FFD700, #6A0DAD);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Optional: padding & rounded background if needed */
-  padding: 5px 15px;
-  border-radius: 5px;
-  display: inline-block;
+  padding: 0;
+  margin:0;
 }
-
-/* Tagline */
 .tagline{
-  font-size:25px;
-  margin-top:5px;
+  font-size:22px;
   color:#9c6b15;
   font-weight:600;
+  margin-top:2px;
 }
 
-
+/* Top-right buttons */
+.top-buttons{
+  display:flex;
+  gap:10px;
+}
+.top-buttons button{
+  padding:8px 15px;
+  font-weight:700;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+}
+.cart-button { background:#FFD700; color:#000; }
+.wishlist-button { background:#FF69B4; color:#fff; }
 
 /* PRODUCT GRID */
 .grid{
@@ -67,7 +84,7 @@ body{
   margin-top:25px;
 }
 
-/* Premium Product Card */
+/* Product Card */
 .card{
   background: rgba(255,255,255,0.95);
   border-radius:18px;
@@ -76,59 +93,58 @@ body{
   border:2px solid rgba(255,215,0,0.4);
   backdrop-filter: blur(6px);
   transition:0.3s ease-in-out;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
-
-/* Hover animation */
 .card:hover{
   transform: translateY(-5px);
   box-shadow:0 25px 45px rgba(0,0,0,0.28);
   border:2px solid rgba(255,215,0,0.9);
 }
-
-/* Product Image */
 .card img{
   width:100%;
   border-radius:14px;
 }
-
-/* Product Title */
 h2{
   font-size:20px;
   text-align:center;
   margin:10px 0;
-  color:#6b4a00; /* Elegant brown-gold shade */
+  color:#6b4a00;
   font-weight:700;
 }
-
-/* Product ID */
 .ProductID{
   font-weight:700;
   text-align:center;
   font-size:17px;
   color:#c08a00;
 }
-
-/* Price */
 .price{
   font-weight:700;
   text-align:center;
   font-size:17px;
   color:#c08a00;
 }
-
-/* WhatsApp Button */
-.btn{
-  display:block;
-  text-align:center;
-  background:#25D366;
+.btn-cart{
+  background:#FF8C00;
   color:white;
   padding:10px;
   border-radius:10px;
+  text-align:center;
   text-decoration:none;
-  margin-top:10px;
   font-weight:700;
+  width:48%;
+  display:inline-block;
 }
-
+.btn-wish{
+  background:transparent;
+  font-size:24px;
+  border:none;
+  cursor:pointer;
+  width:48%;
+  display:inline-block;
+}
 
 /* Footer */
 .footer{
@@ -137,141 +153,197 @@ h2{
   margin-top:25px;
 }
 
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content{
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size:cover;
+  margin:5% auto;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:500px;
+  color:#000;
+}
+.close{
+  float:right;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.cart-item, .wish-item{
+  display:flex;
+  align-items:center;
+  margin-bottom:15px;
+  border-bottom:1px solid #ccc;
+  padding-bottom:10px;
+}
+.cart-item img, .wish-item img{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-right:15px;
+}
+.cart-details, .wish-details{flex-grow:1;}
+.cart-details h3, .wish-details h3{margin:0;font-size:18px;color:#6b4a00;}
+.cart-details p, .wish-details p{margin:2px 0;color:#c08a00;font-weight:600;}
+.remove-btn, .move-btn{
+  padding:5px 10px;
+  margin-left:5px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+.remove-btn{background:#FF0000;color:white;}
+.move-btn{background:#FF8C00;color:white;}
+.total{font-weight:700;font-size:18px;margin-top:15px;text-align:right;}
+.whatsapp-btn{display:block;text-align:center;padding:10px;margin-top:15px;background:#25D366;color:white;border-radius:10px;text-decoration:none;font-weight:700;}
 </style>
 </head>
-
 <body>
 
 <div class="overlay">
 
-<!-- HEADER -->
-<div class="header">
-  <img src="logo.png" class="logo">
-
-  <div class="header-text">
-    <div class="title">Airaa Threads</div>
-    <div class="tagline">That Speaks Style</div>
+<!-- HEADER FLEX -->
+<div class="header-flex">
+  <div class="header-left">
+    <img src="logo.png" class="logo" alt="Logo">
+    <div class="header-text">
+      <div class="title">Airaa Threads</div>
+      <div class="tagline">That Speaks Style</div>
+    </div>
+  </div>
+  <div class="top-buttons">
+    <button class="wishlist-button" onclick="openWishlist()">Wishlist (<span id="wishlist-count">0</span>)</button>
+    <button class="cart-button" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button>
   </div>
 </div>
 
 <!-- PRODUCTS -->
 <div class="grid">
-
   <div class="card">
-    <img src="https://drive.google.com/uc?export=view&id=1hxyvaXkj86CU59zicHfFNEHrIrr_16dR" alt="Soft Silk Saree">
+    <img src="saree1.jpg" alt="Saree 1">
     <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <p class="ProductID">Code: PI001</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
   </div>
-
   <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
+    <img src="saree1.jpg" alt="Saree 1">
     <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>  
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
   </div>
-
   <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
+    <img src="saree1.jpg" alt="Saree 1">
     <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div> 
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>  
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>  
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>  
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>  
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="saree1.jpg" alt="Saree 1">
+    <h2>Saree</h2>
+    <p class="price">₹ xx </p>
+    <p class="ProductID">Code: PI00x</p>
+    <div style="display:flex; justify-content:space-between;">
+      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+    </div>
+  </div>       
   
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
   
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-  
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div> 
-  
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-  
-  <div class="card">
-    <img src="saree1.jpg" alt="Soft Silk Saree">
-    <h2>Saree</h2>
-    <p class="price">₹xx</p>
-    <a class="btn"
-    href="https://wa.me/919865439737?text=Hi%20Airaa%20Threads,%20I%20am%20interested%20in%20Saree%20₹xx" target="_blank">
-      Order on WhatsApp
-    </a>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 
@@ -281,9 +353,149 @@ h2{
 
 </div>
 
+<!-- Cart Modal -->
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCart()">&times;</span>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total"></div>
+    <a href="#" id="whatsapp-link" target="_blank" class="whatsapp-btn">Proceed via WhatsApp</a>
+  </div>
+</div>
+
+<!-- Wishlist Modal -->
+<div id="wishlistModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeWishlist()">&times;</span>
+    <h2>Your Wishlist</h2>
+    <div id="wishlist-items"></div>
+  </div>
+</div>
+
+<script>
+let cart = [];
+let wishlist = [];
+
+function addToCart(button){
+  const card = button.closest('.card');
+  const title = card.querySelector('h2').innerText;
+  const price = card.querySelector('.price').innerText;
+  const code = card.querySelector('.ProductID').innerText;
+  const imgSrc = card.querySelector('img').src;
+
+  cart.push({title, price, code, imgSrc});
+  alert(title + ' added to cart!');
+  updateCartCount();
+  renderCart();
+}
+
+function toggleWishlist(button){
+  const card = button.closest('.card');
+  const title = card.querySelector('h2').innerText;
+  const code = card.querySelector('.ProductID').innerText;
+  const imgSrc = card.querySelector('img').src;
+
+  const index = wishlist.findIndex(item => item.code===code);
+  if(index>-1){
+    wishlist.splice(index,1);
+    button.innerText='🤍';
+  } else {
+    wishlist.push({title, code, imgSrc});
+    button.innerText='❤️';
+    alert(title+' added to wishlist!');
+  }
+  updateWishlistCount();
+  renderWishlist();
+  syncHeartButtons();
+}
+
+function updateCartCount(){document.getElementById('cart-count').innerText=cart.length;}
+function updateWishlistCount(){document.getElementById('wishlist-count').innerText=wishlist.length;}
+function syncHeartButtons(){
+  document.querySelectorAll('.card').forEach(card=>{
+    const code = card.querySelector('.ProductID').innerText;
+    const heartBtn = card.querySelector('.btn-wish');
+    heartBtn.innerText = wishlist.findIndex(item=>item.code===code)>-1?'❤️':'🤍';
+  });
+}
+
+// Cart Modal
+function openCart(){document.getElementById('cartModal').style.display='block'; renderCart();}
+function closeCart(){document.getElementById('cartModal').style.display='none';}
+function renderCart(){
+  const container = document.getElementById('cart-items');
+  container.innerHTML = '';
+  let total = 0;
+
+  cart.forEach((item,index)=>{
+    total += parseInt(item.price.replace('₹','')) || 0;
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.imgSrc}" alt="${item.title}">
+      <div class="cart-details">
+        <h3>${item.title}</h3>
+        <p>${item.code}</p>
+        <p>${item.price}</p>
+      </div>
+      <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+    `;
+    container.appendChild(div);
+  });
+
+  document.getElementById('cart-total').innerText = 'Total: ₹'+total;
+
+  // WhatsApp message with product image URLs
+  const msg = encodeURIComponent(
+    "Hi Airaa Threads, I want to order:\n\n" +
+    cart.map(item => `${item.title} - ${item.code} - ${item.price}\n${item.imgSrc}`).join('\n\n') +
+    `\n\nTotal: ₹${total}`
+  );
+
+  document.getElementById('whatsapp-link').href = "https://wa.me/919865439737?text=" + msg;
+}
+
+function removeFromCart(index){cart.splice(index,1); renderCart(); updateCartCount();}
+
+// Wishlist Modal
+function openWishlist(){document.getElementById('wishlistModal').style.display='block'; renderWishlist();}
+function closeWishlist(){document.getElementById('wishlistModal').style.display='none';}
+function renderWishlist(){
+  const container = document.getElementById('wishlist-items');
+  container.innerHTML = '';
+  wishlist.forEach((item,index)=>{
+    const div = document.createElement('div');
+    div.className='wish-item';
+    div.innerHTML=`
+      <img src="${item.imgSrc}" alt="${item.title}">
+      <div class="wish-details">
+        <h3>${item.title}</h3>
+        <p>${item.code}</p>
+      </div>
+      <button class="move-btn" onclick="moveFromWishlistToCart(${index})">Move to Cart</button>
+      <button class="remove-btn" onclick="removeFromWishlist(${index})">Remove</button>
+    `;
+    container.appendChild(div);
+  });
+}
+function moveFromWishlistToCart(index){
+  const item = wishlist[index];
+  cart.push({...item, price:'₹1200'}); // add price if needed
+  wishlist.splice(index,1);
+  updateCartCount();
+  updateWishlistCount();
+  renderWishlist();
+  renderCart();
+  syncHeartButtons();
+}
+function removeFromWishlist(index){
+  wishlist.splice(index,1);
+  updateWishlistCount();
+  renderWishlist();
+  syncHeartButtons();
+}
+</script>
+
 </body>
 </html>
-
-
-
-
