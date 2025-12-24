@@ -120,10 +120,15 @@ body{
   transform: translateY(-5px);
   border:2px solid rgba(255,215,0,0.9);
 }
+
 .card img{
   width:100%;
+  height:220px;
+  object-fit:cover;
   border-radius:14px;
+  cursor:pointer;
 }
+
 h2{
   font-size:20px;
   text-align:center;
@@ -230,24 +235,42 @@ h2{
   font-weight:700;
 }
 
+/* IMAGE MODAL */
+#imageModal img{
+  width:100%;
+  max-width:450px;
+  border-radius:12px;
+}
+#imageModal .prev, #imageModal .next {
+  cursor:pointer;
+  position:absolute;
+  top:50%;
+  width:auto;
+  padding:16px;
+  margin-top:-22px;
+  color:white;
+  font-weight:bold;
+  font-size:28px;
+  user-select:none;
+  background: rgba(0,0,0,0.3);
+  border-radius:50%;
+}
+#imageModal .prev { left:10px; }
+#imageModal .next { right:10px; }
+#imageModal .prev:hover, #imageModal .next:hover { background: rgba(0,0,0,0.6); }
+
 /* ----------- MOBILE VIEW ------------ */
 @media(max-width:768px){
 .header-flex{justify-content:center;text-align:center;}
 .header-left{justify-content:center;}
 .title{font-size:32px;}
 .tagline{justify-content:center;font-size:16px;}
-.top-buttons{
-  width:100%;
-  justify-content:center;
-  margin-top:6px;
+.card img{
+  height:180px;
 }
 .grid{
   grid-template-columns:1fr 1fr;
   margin:12px;
-}
-.card img{
-  height:220px;
-  object-fit:cover;
 }
 }
 
@@ -255,6 +278,7 @@ h2{
 @media(max-width:480px){
 .title{font-size:28px;}
 .grid{grid-template-columns:1fr;}
+.card img{height:160px;}
 }
 </style>
 </head>
@@ -266,7 +290,6 @@ h2{
     <img src="logo.png" class="logo">
     <div class="header-text">
       <div class="title">Airaa Threads</div>
-
       <div class="tagline">
         That Speaks Style
         <a href="https://www.instagram.com/airaa_threads" target="_blank" class="insta-link">
@@ -274,7 +297,6 @@ h2{
           @airaa_threads
         </a>
       </div>
-
     </div>
   </div>
 
@@ -284,13 +306,12 @@ h2{
   </div>
 </div>
 
-
 <!-- PRODUCT GRID -->
 <div class="grid">
 
-  <!-- Duplicate these cards and just change image / price / code -->
+  <!-- SAMPLE CARD -->
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI001</p>
@@ -299,8 +320,9 @@ h2{
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
+
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI002</p>
@@ -309,8 +331,9 @@ h2{
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
+  
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI003</p>
@@ -318,9 +341,9 @@ h2{
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
-  </div>
+  </div>  
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI004</p>
@@ -329,8 +352,9 @@ h2{
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
+
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI005</p>
@@ -339,8 +363,9 @@ h2{
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
+  
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI006</p>
@@ -348,9 +373,9 @@ h2{
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
-  </div>
+  </div>    
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI007</p>
@@ -359,8 +384,9 @@ h2{
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
+  
   <div class="card">
-    <img src="saree1.jpg">
+    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
     <h2>Saree</h2>
     <p class="price">₹ xx</p>
     <p class="ProductID">Code: PI008</p>
@@ -368,26 +394,25 @@ h2{
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
+  </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Duplicate and change images + codes for more products -->
 </div>
 
 <div class="footer">
   We collect only basic details for order communication. Your data is private.
 </div>
 
-
-<!-- CART -->
+<!-- CART MODAL -->
 <div id="cartModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeCart()">&times;</span>
@@ -398,7 +423,7 @@ h2{
   </div>
 </div>
 
-<!-- WISHLIST -->
+<!-- WISHLIST MODAL -->
 <div id="wishlistModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeWishlist()">&times;</span>
@@ -407,11 +432,60 @@ h2{
   </div>
 </div>
 
+<!-- IMAGE VIEWER MODAL -->
+<div id="imageModal" class="modal">
+  <div class="modal-content" style="position:relative; text-align:center;">
+    <span class="close" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage">
+    <span class="prev" onclick="prevImage()">&#10094;</span>
+    <span class="next" onclick="nextImage()">&#10095;</span>
+  </div>
+</div>
 
 <script>
 let cart = [];
 let wishlist = [];
 
+/* ---------- IMAGE GALLERY ---------- */
+let galleryImages = [];
+let currentIndex = 0;
+
+function openGallery(images,index){
+  galleryImages = images;
+  currentIndex = index;
+  document.getElementById('imageModal').style.display="block";
+  document.getElementById('modalImage').src = galleryImages[currentIndex];
+}
+
+// Close modal
+function closeImageModal(){
+  document.getElementById('imageModal').style.display="none";
+}
+
+// Arrow navigation
+function nextImage(){
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  document.getElementById('modalImage').src = galleryImages[currentIndex];
+}
+function prevImage(){
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById('modalImage').src = galleryImages[currentIndex];
+}
+
+/* ---------- Touch swipe support ---------- */
+let startX = 0;
+
+document.getElementById('imageModal').addEventListener('touchstart', function(e){
+  startX = e.touches[0].clientX;
+}, false);
+
+document.getElementById('imageModal').addEventListener('touchend', function(e){
+  let endX = e.changedTouches[0].clientX;
+  if(endX - startX > 50) prevImage();   // swipe right
+  else if(startX - endX > 50) nextImage(); // swipe left
+}, false);
+
+/* ---------- CART ---------- */
 function addToCart(button){
   const card = button.closest('.card');
   const title = card.querySelector('h2').innerText;
@@ -425,37 +499,7 @@ function addToCart(button){
   renderCart();
 }
 
-function toggleWishlist(button){
-  const card = button.closest('.card');
-  const title = card.querySelector('h2').innerText;
-  const code = card.querySelector('.ProductID').innerText;
-  const imgSrc = card.querySelector('img').src;
-
-  const index = wishlist.findIndex(item => item.code===code);
-  if(index>-1){
-    wishlist.splice(index,1);
-    button.innerText='🤍';
-  } else {
-    wishlist.push({title, code, imgSrc});
-    button.innerText='❤️';
-    alert(title+' added to wishlist!');
-  }
-  updateWishlistCount();
-  renderWishlist();
-  syncHeartButtons();
-}
-
 function updateCartCount(){document.getElementById('cart-count').innerText=cart.length;}
-function updateWishlistCount(){document.getElementById('wishlist-count').innerText=wishlist.length;}
-function syncHeartButtons(){
-  document.querySelectorAll('.card').forEach(card=>{
-    const code = card.querySelector('.ProductID').innerText;
-    card.querySelector('.btn-wish').innerText =
-      wishlist.findIndex(item=>item.code===code)>-1?'❤️':'🤍';
-  });
-}
-
-/* Cart */
 function openCart(){document.getElementById('cartModal').style.display='block'; renderCart();}
 function closeCart(){document.getElementById('cartModal').style.display='none';}
 
@@ -495,7 +539,28 @@ function removeFromCart(index){
   updateCartCount();
 }
 
-/* Wishlist */
+/* ---------- WISHLIST ---------- */
+function toggleWishlist(button){
+  const card = button.closest('.card');
+  const title = card.querySelector('h2').innerText;
+  const code = card.querySelector('.ProductID').innerText;
+  const imgSrc = card.querySelector('img').src;
+
+  const index = wishlist.findIndex(item => item.code===code);
+  if(index>-1){
+    wishlist.splice(index,1);
+    button.innerText='🤍';
+  } else {
+    wishlist.push({title, code, imgSrc});
+    button.innerText='❤️';
+    alert(title+' added to wishlist!');
+  }
+  updateWishlistCount();
+  renderWishlist();
+  syncHeartButtons();
+}
+
+function updateWishlistCount(){document.getElementById('wishlist-count').innerText=wishlist.length;}
 function openWishlist(){document.getElementById('wishlistModal').style.display='block'; renderWishlist();}
 function closeWishlist(){document.getElementById('wishlistModal').style.display='none';}
 
@@ -533,6 +598,14 @@ function removeFromWishlist(index){
   updateWishlistCount();
   renderWishlist();
   syncHeartButtons();
+}
+
+function syncHeartButtons(){
+  document.querySelectorAll('.card').forEach(card=>{
+    const code = card.querySelector('.ProductID').innerText;
+    card.querySelector('.btn-wish').innerText =
+      wishlist.findIndex(item=>item.code===code)>-1?'❤️':'🤍';
+  });
 }
 </script>
 
