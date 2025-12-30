@@ -275,7 +275,7 @@ h2{
 }
 .old-price{
   text-decoration: line-through;
-  color:#888;
+  color:black;
   font-size:16px;
   margin-right:6px;
 }
@@ -850,10 +850,10 @@ document.querySelectorAll(".card").forEach(card=>{
 
  if(discount > 0){
    let final = Math.round(price - (price*discount/100));
-   badge.innerHTML = discount + "%";
+   badge.innerHTML = discount + "%" + " - Opening Offer";
    priceTag.innerHTML =
-   `<span class="old-price">₹${price}</span>
-    <span class="new-price">₹${final}</span>`;
+   `<p class="old-price">₹${price}</p>
+    <p class="new-price"> Offred Price: ₹${final}</p>`;
  } else {
    badge.style.display="none";
    priceTag.innerHTML = `<span class="new-price">₹${price}</span>`;
