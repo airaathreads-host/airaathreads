@@ -261,6 +261,38 @@ h2{
 #imageModal .next { right:10px; }
 #imageModal .prev:hover, #imageModal .next:hover { background: rgba(0,0,0,0.6); }
 
+/* ---- DISCOUNT ---- */
+.discount-badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:red;
+  color:#fff;
+  padding:8px 10px;
+  border-radius:50%;
+  font-size:14px;
+  font-weight:bold;
+}
+.old-price{
+  text-decoration: line-through;
+  color:#888;
+  font-size:16px;
+  margin-right:6px;
+}
+.new-price{
+  color:green;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  font-size:12px;
+  margin-top:25px;
+}
+
+
 /* ----------- MOBILE VIEW ------------ */
 @media(max-width:768px){
 .header-flex{justify-content:center;text-align:center;}
@@ -308,106 +340,266 @@ h2{
   </div>
 </div>
 
-<!-- PRODUCT GRID -->
+<!-- PRODUCT GRID #############################################-->
 <div class="grid">
 
   <!-- SAMPLE CARD -->
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
+  <div class="card" data-price="1140" data-discount="15">
+    <div class="discount-badge"></div>
+    <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095983/1_ohrfhv.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095983/1_ohrfhv.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095987/1b_sintvv.jpg'],0)">
     <h2>Saree</h2>
-    <p class="price">₹ 550</p>
-    <p class="ProductID">Code: PI001</p>
-    <div style="display:flex; justify-content:space-between;">
-      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
-      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
-    <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI002</p>
+    <p class="price"></p>
+    <p class="ProductID">Code: A-PI001</p>
     <div style="display:flex; justify-content:space-between;">
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>
   
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
+  <div class="card" data-price="1140" data-discount="15">
+    <div class="discount-badge"></div>
+    <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095991/2_erepva.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095991/2_erepva.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095987/2b_djy4uo.jpg'],0)">
     <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI003</p>
+    <p class="price"></p>
+    <p class="ProductID">Code: A-PI002</p>
     <div style="display:flex; justify-content:space-between;">
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>  
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
-    <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI004</p>
-    <div style="display:flex; justify-content:space-between;">
-      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
-      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
-    </div>
-  </div>
 
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
+  <div class="card" data-price="1140" data-discount="15">
+    <div class="discount-badge"></div>
+    <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095989/3_yugppm.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095989/3_yugppm.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095982/3b_jdfric.jpg'],0)">
     <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI005</p>
+    <p class="price"></p>
+    <p class="ProductID">Code: A-PI003</p>
     <div style="display:flex; justify-content:space-between;">
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
-  </div>
-  
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
+  </div>  
+
+  <div class="card" data-price="1140" data-discount="15">
+    <div class="discount-badge"></div>
+    <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096011/4_cnghvn.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096011/4_cnghvn.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096011/4b_kw2xme.jpg'],0)">
     <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI006</p>
+    <p class="price"></p>
+    <p class="ProductID">Code: A-PI004</p>
     <div style="display:flex; justify-content:space-between;">
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
   </div>    
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
+
+  <div class="card" data-price="1140" data-discount="15">
+    <div class="discount-badge"></div>
+    <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095989/5_n09pik.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095989/5_n09pik.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096011/5b_xzkc8v.jpg'],0)">
     <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI007</p>
+    <p class="price"></p>
+    <p class="ProductID">Code: A-PI005</p>
     <div style="display:flex; justify-content:space-between;">
       <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
       <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
     </div>
-  </div>
+  </div>  
+
+ <div class="card" data-price="1140" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095995/6_qrswum.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767095995/6_qrswum.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096012/6b_of3rmr.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: A-PI006</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>       
+ 
+ <div class="card" data-price="1140" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096017/7_twctwi.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096017/7_twctwi.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096002/7b_upbkv4.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: A-PI007</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>         
   
-  <div class="card">
-    <img src="saree1.jpg" onclick="openGallery(['saree1.jpg','saree1.jpg','saree1.jpg','saree1.jpg'],0)">
-    <h2>Saree</h2>
-    <p class="price">₹ xx</p>
-    <p class="ProductID">Code: PI008</p>
-    <div style="display:flex; justify-content:space-between;">
-      <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
-      <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
-    </div>
-  </div>   
+ <div class="card" data-price="1140" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096010/8_dchwvt.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096010/8_dchwvt.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096014/8b_rruvg8.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: A-PI008</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>   
+ 
+ <div class="card" data-price="1140" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096017/9_xugrfy.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096017/9_xugrfy.jpg','https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096017/9b_iamh0t.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: A-PI009</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>  
+ 
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096061/1_wvibb1.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096061/1_wvibb1.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI001</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>  
+ 
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096068/2_fppbke.png" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096068/2_fppbke.png'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI002</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>            
   
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096062/3_qgiq1v.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096062/3_qgiq1v.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI003</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>  
   
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096063/4_vhngrw.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096063/4_vhngrw.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI004</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>    
+ 
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096063/5_oq9rfb.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096063/5_oq9rfb.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI005</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>  
+ 
+ <div class="card" data-price="1490" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096068/6_bpysto.png" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096068/6_bpysto.png'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: B-PI006</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>    
+ 
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096093/1_m2euyy.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096093/1_m2euyy.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI001</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>    
+
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096090/2_bryiwu.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096090/2_bryiwu.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI002</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>   
+ 
+
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096095/3_ubmxlm.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096095/3_ubmxlm.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI003</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div> 
+ 
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096092/4_pyfvdi.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096092/4_pyfvdi.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI004</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>    
+
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096105/5_efm0a3.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096105/5_efm0a3.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI005</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>   
+ 
+
+ <div class="card" data-price="900" data-discount="15">
+   <div class="discount-badge"></div>
+   <img src="https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096097/6_xincsq.jpg" onclick="openGallery(['https://res.cloudinary.com/dfh98mqjq/image/upload/v1767096097/6_xincsq.jpg'],0)">
+   <h2>Saree</h2>
+   <p class="price"></p>
+   <p class="ProductID">Code: C-PI006</p>
+   <div style="display:flex; justify-content:space-between;">
+     <a class="btn-cart" href="#" onclick="addToCart(this)">Add to Cart</a>
+     <button class="btn-wish" onclick="toggleWishlist(this)">🤍</button>
+   </div>
+ </div>    
+ 
   
-  
-  
-  
-  
-  
-  
-  
-  <!-- Duplicate and change images + codes for more products -->
+  <!-- Duplicate and change images + codes for more products --#############################>
 </div>
 
 <div class="footer">
@@ -424,6 +616,7 @@ h2{
     <a href="#" id="whatsapp-link" target="_blank" class="whatsapp-btn">Proceed via WhatsApp</a>
   </div>
 </div>
+
 
 <!-- WISHLIST MODAL -->
 <div id="wishlistModal" class="modal">
@@ -488,53 +681,76 @@ document.getElementById('imageModal').addEventListener('touchend', function(e){
 }, false);
 
 /* ---------- CART ---------- */
+
 function addToCart(button){
   const card = button.closest('.card');
+
   const title = card.querySelector('h2').innerText;
-  const price = card.querySelector('.price').innerText;
   const code = card.querySelector('.ProductID').innerText;
   const imgSrc = card.querySelector('img').src;
 
-  cart.push({title, price, code, imgSrc});
+  const price = Number(card.getAttribute("data-price"));
+  const discount = Number(card.getAttribute("data-discount"));
+
+  const finalPrice = discount > 0 
+        ? Math.round(price - (price * discount / 100))
+        : price;
+
+  cart.push({
+    title,
+    code,
+    imgSrc,
+    finalPrice
+  });
+
   alert(title + ' added to cart!');
   updateCartCount();
   renderCart();
 }
+
+
 
 function updateCartCount(){document.getElementById('cart-count').innerText=cart.length;}
 function openCart(){document.getElementById('cartModal').style.display='block'; renderCart();}
 function closeCart(){document.getElementById('cartModal').style.display='none';}
 
 function renderCart(){
-  const container=document.getElementById('cart-items');
-  container.innerHTML='';
-  let total=0;
+  const container = document.getElementById('cart-items');
+  container.innerHTML = '';
+  let total = 0;
 
   cart.forEach((item,index)=>{
-    total+=parseInt(item.price.replace('₹',''))||0;
-    const div=document.createElement('div');
+    total += item.finalPrice;
+
+    const div = document.createElement('div');
     div.className='cart-item';
-    div.innerHTML=`
+
+    div.innerHTML = `
       <img src="${item.imgSrc}">
       <div class="cart-details">
         <h3>${item.title}</h3>
         <p>${item.code}</p>
-        <p>${item.price}</p>
+        <p>₹${item.finalPrice}</p>
       </div>
-      <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>`;
+      <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+    `;
     container.appendChild(div);
   });
 
-  document.getElementById('cart-total').innerText='Total: ₹'+total;
+  document.getElementById('cart-total').innerText = 'Total: ₹' + total;
 
-  const msg=encodeURIComponent(
+  const msg = encodeURIComponent(
     "Hi Airaa Threads, I want to order:\n\n"+
-    cart.map(item=>`${item.title} - ${item.code} - ${item.price}\n${item.imgSrc}`).join('\n\n')+
+    cart.map(item=>`${item.title} - ${item.code} - ₹${item.finalPrice}\n${item.imgSrc}`).join('\n\n')+
     `\n\nTotal: ₹${total}`
   );
 
-  document.getElementById('whatsapp-link').href="https://wa.me/916374655079?text="+msg;
+  document.getElementById('whatsapp-link').href =
+      "https://wa.me/916374655079?text=" + msg;
 }
+
+
+
 function removeFromCart(index){
   cart.splice(index,1);
   renderCart();
@@ -546,7 +762,13 @@ function toggleWishlist(button){
   const card = button.closest(".card");
   const title = card.querySelector("h2").innerText;
   const code = card.querySelector(".ProductID").innerText;
-  const price = card.querySelector(".price").innerText;
+  
+  const priceValue = Number(card.getAttribute("data-price"));
+  const discountValue = Number(card.getAttribute("data-discount"));
+  const finalPrice = discountValue > 0 
+        ? Math.round(priceValue - (priceValue * discountValue / 100))
+        : priceValue;
+
   const imgSrc = card.querySelector("img").src;
 
   const index = wishlist.findIndex(i=>i.code===code);
@@ -555,7 +777,7 @@ function toggleWishlist(button){
     wishlist.splice(index,1);
     button.innerText="🤍";
   } else {
-    wishlist.push({title, code, price, imgSrc});
+    wishlist.push({ title, code, finalPrice, imgSrc });
     button.innerText="❤️";
     alert(title+" added to wishlist!");
   }
@@ -580,7 +802,7 @@ function renderWishlist(){
       <div class="wish-details">
         <h3>${item.title}</h3>
         <p>${item.code}</p>
-        <p>${item.price}</p>        
+        <p>${item.finalPrice}</p>        
       </div>
       <button class="move-btn" onclick="moveFromWishlistToCart(${index})">Move to Cart</button>
       <button class="remove-btn" onclick="removeFromWishlist(${index})">Remove</button>`;
@@ -616,6 +838,29 @@ function syncHeartButtons(){
 }
 </script>
 
+
+<script>
+/* ---------- DISCOUNT SCRIPT ---------- */
+document.addEventListener("DOMContentLoaded", function(){
+document.querySelectorAll(".card").forEach(card=>{
+ let price = Number(card.getAttribute("data-price"));
+ let discount = Number(card.getAttribute("data-discount"));
+ let priceTag = card.querySelector(".price");
+ let badge = card.querySelector(".discount-badge");
+
+ if(discount > 0){
+   let final = Math.round(price - (price*discount/100));
+   badge.innerHTML = discount + "%";
+   priceTag.innerHTML =
+   `<span class="old-price">₹${price}</span>
+    <span class="new-price">₹${final}</span>`;
+ } else {
+   badge.style.display="none";
+   priceTag.innerHTML = `<span class="new-price">₹${price}</span>`;
+ }
+});
+});
+</script>
+
 </body>
 </html>
-
